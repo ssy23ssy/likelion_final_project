@@ -1,0 +1,87 @@
+// Place all the styles related to the Portfolios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// index
+
+section.container {
+  min-height: 90vh;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+}
+
+.portfolios {
+  border: 3px solid #007bff;
+  border-radius: 0.25rem;
+  height: 30vh;
+  box-sizing: content-box;
+}
+
+.portfolio-top {
+  height: 15vh;
+}
+
+.pf-outside-btn {
+  height: 15vh;
+}
+
+#new_portfolio {
+  position: absolute;
+  bottom: 1rem;
+  right: 0;
+}
+
+.empty {
+  min-height: 70vh;
+}
+
+
+// show
+
+.pf-inside-btn {
+  float: right;
+}
+
+.card-wrapper {
+  width: 100%;
+  min-height: 90vh;
+}
+
+.portfolio-card {
+  width: 80%;
+  border: 5px solid #007bff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+@media (max-width: 768px) {
+  .portfolio-card {
+    width: 100%
+  }
+}
+
+
+.portfolio-title {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.portfolio-card-footer::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.portfolio-card-main {
+  //border: 2px solid #007bff;
+  text-align: center;
+}
+
+.slide-preview {
+  min-height: 30vh;
+}
+

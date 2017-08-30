@@ -1,0 +1,54 @@
+<section class="container">
+  <div class="card-wrapper d-flex justify-content-center align-items-center">
+    <div class="portfolio-card">
+      <h2 class="sr-only"><%= @portfolio.title %></h2>
+
+      <div class="portfolio-card-main mb-3">
+        <h3 class="sr-only">slide preview</h3>
+        <div class="slide-preview d-flex justify-content-center align-items-center">
+          <!-- modal-trigger -->
+          <h3 class="portfolio-title" data-toggle="modal" data-target="#editModal"><%= @portfolio.title %></h3>
+        </div>
+        <p>Total <%= @portfolio.slides.count %>p</p>
+      </div>
+
+      <div class="portfolio-card-footer">
+        <div class="d-flex justify-content-center mb-2">
+          <div class="btn-group">
+            <%= link_to '슬라이드 보기', portfolio_show_slide_path(@portfolio.id, 1), class: 'btn btn-primary link-btn' %>
+            <%= link_to '슬라이드 추가', new_portfolio_slide_path(@portfolio.id), class: 'btn btn-primary link-btn' %>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <%= link_to '목록', portfolios_path, class: 'btn btn-primary link-btn' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= form_for :portfolio, method: :patch do |f| %>
+              <div class="form-group">
+                <label for="portfolio_title">제목</label>
+                <%= f.text_field :title, required: true, class: 'form-control' %>
+              </div>
+              <%= f.submit '수정', class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<section class="container pt-4">
+  <%= form_for @slide, url: portfolio_slides_path(@portfolio) do |f| %>
+      <div class="form-group">
+        <%= f.label :content, class: 'sr-only' %>
+        <%= f.markdown :content %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= f.submit '추가', class: 'btn btn-primary' %>
+      </div>
+  <% end %>
+  <%= link_to '이전', portfolios_path, class: 'btn btn-primary link-btn prev-btn' %>
+</section>

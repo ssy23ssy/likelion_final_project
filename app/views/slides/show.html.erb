@@ -1,0 +1,44 @@
+<article class="full-slide d-flex justify-content-between align-items-center flex-wrap">
+
+  <%= previous_button(@slide.order, @portfolio) %>
+
+  <div class="slide-content">
+    <% if first_slide?(@slide.order) %>
+        <h1 class="slide-title"><%= @slide.content %></h1>
+    <% else %>
+        <div>
+          <%= markdown(@slide.content) %>
+        </div>
+    <% end %>
+  </div>
+
+  <%= next_button(@slide.order, @portfolio) %>
+
+  <%#= TODO: 끝 페이지보다 넘는 입력이 들어가면 끝 페이지를 보여주기 %>
+
+
+  <% if current_user.id == @portfolio.user_id %>
+      <div class="slide-order">
+        <%= order_change_button(@slide.order, @portfolio) %>
+      </div>
+  <% end %>
+
+  <% if !first_slide?(@slide.order) && current_user.id == @portfolio.user_id %>
+      <div class="slide-edit btn-group">
+        <%= link_to '수정', portfolio_edit_slide_path(@portfolio.id, @slide.order) %>|
+        <%= link_to '삭제', portfolio_destroy_slide_path(@portfolio.id, @slide.order), method: :delete %>
+      </div>
+  <% end %>
+</article>
+
+<div class="slide-footer bg-primary d-flex justify-content-between align-items-center">
+  <div class="slide-information">
+    <h2><%= link_to "#{@portfolio.title}", portfolio_path(@portfolio) %></h2>
+  </div>
+  <div class="slide-page">
+    <span><%= @slide.order %>/<%= @portfolio.slides.count %></span>
+  </div>
+  <div class="slide-owner">
+    <p><%= @portfolio.user.email %></p>
+  </div>
+</div>

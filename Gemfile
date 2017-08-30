@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'mark_it_zero', git: 'https://github.com/ssy23ssy/mark_it_zero'
+gem 'mark_it_zero'
 gem 'redcarpet'
 
 # https://github.com/twbs/bootstrap-rubygem
